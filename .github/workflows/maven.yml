@@ -17,20 +17,5 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Config aliyun mirror
-        run: |
-          cat > ~/.m2/settings.xml <<'EOF'
-<?xml version="1.0" encoding="UTF-8"?>
-<settings>
-  <mirrors>
-    <mirror>
-      <id>aliyun</id>
-      <mirrorOf>central</mirrorOf>
-      <url>https://maven.aliyun.com/repository/public</url>
-    </mirror>
-  </mirrors>
-</settings>
-EOF
-
       - name: Build package
         run: mvn -B package
